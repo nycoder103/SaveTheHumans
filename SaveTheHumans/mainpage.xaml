@@ -25,7 +25,7 @@
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="75" Click="startButton_Click"/>
-        <ProgressBar Grid.Column="1" Grid.Row="3" Height="20"/>
+        <ProgressBar x:Name="progressBar" Grid.Column="1" Grid.Row="3" Height="20"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBox x:Name="textBox" TextWrapping="Wrap" Text="Avoid These" RenderTransformOrigin="-0.25,0.641" FontSize="18" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
             <ContentControl Content="ContentControl" Template="{DynamicResource EnemyTemplates}"/>
