@@ -12,7 +12,7 @@
         </ControlTemplate>
     </Page.Resources>
 
-    <Grid Background="Black">
+    <Grid x:Name="grid" Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
             <ColumnDefinition/>
@@ -28,21 +28,21 @@
         <ProgressBar x:Name="progressBar" Grid.Column="1" Grid.Row="3" Height="20"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBox x:Name="textBox" TextWrapping="Wrap" Text="Avoid These" RenderTransformOrigin="-0.25,0.641" FontSize="18" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-            <ContentControl Content="ContentControl" Template="{DynamicResource EnemyTemplates}"/>
+            <ContentControl Content="ContentControl" Template="{DynamicResource EnemyTemplates}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <Canvas x:Name="playArea" Grid.Row="2" Grid.ColumnSpan="3" MinWidth="1" >
+        <Canvas x:Name="playArea" Grid.Row="2" Grid.ColumnSpan="3" MinWidth="1" MouseLeave="playArea_MouseLeave" MouseMove="playArea_MouseMove" >
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
                     <GradientStop Color="#FF3D8EC7" Offset="1"/>
                 </LinearGradientBrush>
             </Canvas.Background>
-            <StackPanel x:Name="human" Orientation="Vertical">
+            <StackPanel x:Name="human" Orientation="Vertical" MouseDown="human_MouseDown">
                 <Ellipse Fill="#FFF9F8F8" Height="10" Stroke="Black" Width="10"/>
                 <Rectangle Fill="White" Height="25" Stroke="Black" Width="10"/>
             </StackPanel>
             <TextBox x:Name="gameOverText" TextWrapping="Wrap" Text="Game Over" FontFamily="Constantia" FontSize="100" FontWeight="Bold" FontStyle="Italic" Canvas.Left="226" Canvas.Top="166"/>
-            <Rectangle x:Name="target" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.5" Canvas.Left="438" Canvas.Top="130">
+            <Rectangle x:Name="target" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.5,0.5" Canvas.Left="438" Canvas.Top="130" MouseEnter="target_MouseEnter">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
